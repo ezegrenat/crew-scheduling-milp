@@ -1,6 +1,6 @@
 # Crew Assignment MILP
 
-This project solves a crew scheduling problem using Mixed Integer Linear Programming (MILP). The goal is to assign work crews to tasks in a way that **maximizes total benefit** while satisfying multiple operational constraints. The model is implemented in Python and solved using IBM CPLEX.
+This project solves a crew scheduling problem using Mixed Integer Linear Programming (MILP). It is a typical example of **task assignment using MILP**, where we allocate workers to tasks under a set of real-world constraints. The model is implemented in Python and solved using IBM CPLEX.
 
 ## Problem Overview
 
@@ -52,5 +52,26 @@ Input files are plain `.txt` files with the following structure:
    `<order_1> <order_2>`
 
 > 📄 See `test_A.txt` for an example.
+
+
+## Variables Used
+
+Let the following variables be defined:
+
+- \( W_{xj} \): Number of hours worked by worker \( j \) in salary band \( x \).
+- \( Y_{xj} \in \{0,1\} \): 1 if worker \( j \) works within salary band \( x \); 0 otherwise.
+- \( O_{ik} \in \{0,1\} \): 1 if task \( i \) is scheduled in shift \( k \); 0 otherwise.
+- \( A_{ij} \in \{0,1\} \): 1 if worker \( j \) is assigned to task \( i \); 0 otherwise.
+- \( X_{kj} \in \{0,1\} \): 1 if worker \( j \) works during shift \( k \); 0 otherwise.
+- \( V_{dj} \in \{0,1\} \): 1 if worker \( j \) works on day \( d \); 0 otherwise.
+- \( \delta_{ikj} \in \{0,1\} \): 1 if worker \( j \) performs task \( i \) during shift \( k \); 0 otherwise.
+- \( H_i \in \{0,1\} \): 1 if task \( i \) is completed; 0 otherwise.
+- \( \lambda_{ijj'} \in \{0,1\} \): 1 if workers \( j \) and \( j' \) (who have a conflict) are both assigned to task \( i \); 0 otherwise.
+- \( \theta_{ii'j} \in \{0,1\} \): 1 if worker \( j \) performs both repetitive tasks \( i \) and \( i' \); 0 otherwise.
+- \( \texttt{max\_work} \in \mathbb{Z}_{\geq 0} \): Maximum number of shifts assigned to any worker.
+- \( \texttt{min\_work} \in \mathbb{Z}_{\geq 0} \): Minimum number of shifts assigned to any worker.
+
+These variables define the assignment, scheduling, salary tracking, and conflict restrictions required for the optimization model.
+
 
 
