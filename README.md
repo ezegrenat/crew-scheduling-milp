@@ -1,6 +1,6 @@
 # Crew Assignment MILP
 
-This project solves a crew scheduling problem using Mixed Integer Linear Programming (MILP). It is a typical example of **task assignment using MILP**, where we allocate workers to tasks under a set of real-world constraints. The model is implemented in Python and solved using IBM CPLEX.
+This project solves a crew scheduling problem using Mixed Integer Linear Programming (MILP). It is a typical example of **task assignment**, where we allocate workers to tasks under a set of real-world constraints. The model is implemented in Python and solved using IBM CPLEX.
 
 ## Problem Overview
 
